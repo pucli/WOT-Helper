@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/auth">
+
+    <navigation android:id="@+id/auth"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.wot.helper.ui.auth.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login" >
+            <action
+                android:id="@+id/action_loginFragment_to_registerFragment"
+                app:destination="@id/registerFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+                app:destination="@id/forgotPasswordFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.wot.helper.ui.auth.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register" >
+            <action
+                android:id="@+id/action_registerFragment_to_loginFragment"
+                app:destination="@id/loginFragment"
+                app:popUpTo="@id/registerFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/forgotPasswordFragment"
+            android:name="com.wot.helper.ui.auth.ForgotPasswordFragment"
+            android:label="ForgotPasswordFragment"
+            tools:layout="@layout/fragment_forgotpassword" />
+        <action
+            android:id="@+id/action_global_homePageFragment"
+            app:destination="@id/mainapp"
+            app:popUpTo="@id/auth"
+            app:popUpToInclusive="true" />
+    </navigation>
+    <navigation android:id="@+id/mainapp"
+        app:startDestination="@id/homePageFragment">
+        <fragment
+            android:id="@+id/profilFragment"
+            android:name="com.wot.helper.ui.profile.ProfileFragment"
+            android:label="fragment_profil"
+            tools:layout="@layout/fragment_profil"/>
+        <fragment
+            android:id="@+id/homePageFragment"
+            android:name="com.wot.helper.ui.home.HomePageFragment"
+            android:label="HomePageFragment"
+            tools:layout="@layout/fragment_home_page">
+            <action
+                android:id="@+id/action_homePageFragment_to_natiuneFragment"
+                app:destination="@id/natiuneFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_mapsFragment"
+                app:destination="@id/mapsFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_profilFragment"
+                app:destination="@id/profilFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/natiuneFragment"
+            android:name="com.wot.helper.ui.tanks.NatiuneFragment"
+            android:label="NatiuneFragment"
+            tools:layout="@layout/fragment_natiune_page">
+            <action
+                android:id="@+id/action_natiuneFragment_to_tipTankFragment"
+                app:destination="@id/tipTankFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/tipTankFragment"
+            android:name="com.wot.helper.ui.tanks.TipTankFragment"
+            android:label="TipTankFragment"
+            tools:layout="@layout/fragment_tip_tank_page">
+            <action
+                android:id="@+id/action_tipTankFragment_to_tierFragment"
+                app:destination="@id/tierFragment" />
+            <argument
+                android:name="nation"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/tierFragment"
+            android:name="com.wot.helper.ui.tanks.TierFragment"
+            android:label="TierFragment"
+            tools:layout="@layout/fragment_tier">
+            <action
+                android:id="@+id/action_tierFragment_to_tankFoundFragment"
+                app:destination="@id/tankFoundFragment" />
+            <argument
+                android:name="type"
+                app:argType="string" />
+            <argument
+                android:name="nation"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/tankFoundFragment"
+            android:name="com.wot.helper.ui.tanks.TankFoundFragment"
+            android:label="TankFoundFragment"
+            tools:layout="@layout/fragment_tank_found">
+            <action
+                android:id="@+id/action_tankFoundFragment_to_tankCharacteristicsFragment"
+                app:destination="@id/tankCharacteristicsFragment" />
+            <argument
+                android:name="nation"
+                app:argType="string" />
+            <argument
+                android:name="type"
+                app:argType="string" />
+            <argument
+                android:name="tier"
+                app:argType="integer" />
+            <action
+                android:id="@+id/action_tankFoundFragment_to_tierFragment"
+                app:destination="@id/tierFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/tankCharacteristicsFragment"
+            android:name="com.wot.helper.ui.tanks.TankCharacteristicsFragment"
+            android:label="TankCharacteristicsFragment"
+            tools:layout="@layout/fragment_tank_characteristics" >
+            <argument
+                android:name="title"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/mapCharacteristicsFragment"
+            android:name="com.wot.helper.ui.maps.MapCharacteristicsFragment"
+            android:label="MapCharacteristicsFragment"
+            tools:layout="@layout/fragment_map_characteristics">
+            <argument
+                android:name="title"
+                app:argType="string" />
+        </fragment>
+        <fragment
+            android:id="@+id/mapsFragment"
+            android:name="com.wot.helper.ui.maps.MapsFragment"
+            android:label="MapsFragment"
+            tools:layout="@layout/fragment_maps">
+            <action
+                android:id="@+id/action_mapsFragment_to_mapCharacteristicsFragment"
+                app:destination="@id/mapCharacteristicsFragment" />
+        </fragment>
+        <action
+            android:id="@+id/action_global_auth"
+            app:destination="@id/auth"
+            app:popUpTo="@id/profilFragment"
+            app:popUpToInclusive="true" />
+    </navigation>
+</navigation>
+

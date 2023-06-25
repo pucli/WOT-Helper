@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/t10_2222222">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loggedOutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.85"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.15"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHorizontalTop40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.4"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loggedInLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/glHorizontalBottom"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2"
+            app:layout_constraintTop_toTopOf="@+id/glHorizontalTop30"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <TextView
+                android:id="@+id/AvgExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Avg Exp"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/AvgExpID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/AvgExp"
+                app:layout_constraintStart_toStartOf="@+id/AvgExp"
+                app:layout_constraintTop_toBottomOf="@+id/AvgExp" />
+
+            <TextView
+                android:id="@+id/MostDestroyed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Most Destroyed"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/MostDestroyedID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/MostDestroyed"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="@+id/MostDestroyed"
+                app:layout_constraintTop_toBottomOf="@+id/MostDestroyed" />
+
+            <TextView
+                android:id="@+id/MaxExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="2dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Max Exp"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/MaxExpID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/MaxExp"
+                app:layout_constraintTop_toBottomOf="@+id/MaxExp" />
+
+            <TextView
+                android:id="@+id/Hits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Hit Accuracy"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MostDestroyedID" />
+
+            <TextView
+                android:id="@+id/HitsID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/Hits"
+                app:layout_constraintStart_toStartOf="@+id/Hits"
+                app:layout_constraintTop_toBottomOf="@+id/Hits" />
+
+            <TextView
+                android:id="@+id/AvgDmg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Avg Block"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/AvgExpID" />
+
+            <TextView
+                android:id="@+id/AvgDmgID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/AvgDmg"
+                app:layout_constraintHorizontal_bias="0.378"
+                app:layout_constraintStart_toStartOf="@+id/AvgDmg"
+                app:layout_constraintTop_toBottomOf="@+id/AvgDmg" />
+
+            <TextView
+                android:id="@+id/MaxDmg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:fontFamily="@font/molen"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+                android:text="Max Dmg"
+                android:textColor="@color/dark_yellow"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/MaxExpID" />
+
+            <TextView
+                android:id="@+id/MaxDmgID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/typewriterbold"
+                android:shadowColor="#000000"
+                android:shadowDx="1.5"
+                android:shadowDy="1.3"
+                android:shadowRadius="1.6"
+
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/MaxDmg"
+                app:layout_constraintStart_toStartOf="@+id/MaxDmg"
+                app:layout_constraintTop_toBottomOf="@+id/MaxDmg" />
+
+            <ImageView
+                android:id="@+id/imageAvgExp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_avgexp"
+                app:layout_constraintBottom_toTopOf="@+id/AvgExp"
+                app:layout_constraintEnd_toEndOf="@+id/AvgExp"
+                app:layout_constraintStart_toStartOf="@+id/AvgExp"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageDestroyed"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_tank_svgrepo_com__1_"
+                app:layout_constraintBottom_toTopOf="@+id/MostDestroyed"
+                app:layout_constraintEnd_toEndOf="@+id/MostDestroyed"
+                app:layout_constraintStart_toStartOf="@+id/MostDestroyed"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageMaxExp"
+                android:layout_width="23dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_maxexp"
+                app:layout_constraintBottom_toTopOf="@+id/MaxExp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/MaxExp"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageHits"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_hits"
+                app:layout_constraintBottom_toTopOf="@+id/Hits"
+                app:layout_constraintEnd_toEndOf="@+id/Hits"
+                app:layout_constraintStart_toStartOf="@+id/Hits"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageAvgDmg"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_damage"
+                app:layout_constraintBottom_toTopOf="@+id/AvgDmg"
+                app:layout_constraintEnd_toEndOf="@+id/AvgDmg"
+                app:layout_constraintStart_toStartOf="@+id/AvgDmg"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/imageMaxDmg"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_maxdmg"
+                app:layout_constraintBottom_toTopOf="@+id/MaxDmg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/MaxDmg"
+                tools:ignore="ContentDescription" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/favTank"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="68dp"-->
+            <!--                android:fontFamily="@font/hello_sunday"-->
+            <!--                android:shadowColor="#000000"-->
+            <!--                android:shadowDx="1.5"-->
+            <!--                android:shadowDy="1.3"-->
+            <!--                android:shadowRadius="1.6"-->
+            <!--                android:text="Favorite Tank"-->
+            <!--                android:textColor="@color/dark_yellow"-->
+            <!--                android:textSize="30dp"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/AvgDmgID" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            style="@style/MaterialButton_AuthenticationStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/logout"
+            app:icon="@drawable/ic_logout"
+            app:iconTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glHorizontalBottom" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.9"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.1"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHorizontalTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHorizontalBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHorizontalTop30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.3"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glHorizontal50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/Victories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/molen"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Victories"
+            android:textColor="@color/dark_yellow"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/glHorizontalTop"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2" />
+
+        <TextView
+            android:id="@+id/VictoriesID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/typewriterbold"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/Victories"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2"
+            app:layout_constraintTop_toTopOf="@+id/glHorizontalTop" />
+
+        <TextView
+            android:id="@+id/PersonalRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/molen"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Personal Rating"
+            android:textColor="@color/dark_yellow"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/glHorizontalTop"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight2"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2" />
+
+        <TextView
+            android:id="@+id/PersonalRatingID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/typewriterbold"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+
+            app:layout_constraintEnd_toEndOf="@+id/PersonalRating"
+            app:layout_constraintStart_toStartOf="@+id/PersonalRating"
+            app:layout_constraintTop_toTopOf="@+id/glHorizontalTop" />
+
+        <TextView
+            android:id="@+id/Battles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="@font/molen"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="Battles"
+            android:textColor="@color/dark_yellow"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/glHorizontalTop"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight2" />
+
+        <TextView
+            android:id="@+id/BattlesID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/typewriterbold"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/Battles"
+            app:layout_constraintStart_toStartOf="@+id/Battles"
+            app:layout_constraintTop_toTopOf="@+id/glHorizontalTop" />
+
+        <ImageView
+            android:id="@+id/imageVictories"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_victories"
+
+            app:layout_constraintBottom_toTopOf="@+id/Victories"
+            app:layout_constraintEnd_toEndOf="@+id/Victories"
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imagePersonalRating"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_wot_white"
+            app:layout_constraintBottom_toTopOf="@+id/PersonalRating"
+            app:layout_constraintEnd_toEndOf="@+id/PersonalRating"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="@+id/PersonalRating"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/imageBattles"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_battles"
+            app:layout_constraintBottom_toTopOf="@+id/Battles"
+            app:layout_constraintEnd_toEndOf="@+id/Battles"
+            app:layout_constraintStart_toStartOf="@+id/Battles"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/molen"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+
+            android:textColor="@color/white"
+            android:textSize="30dp"
+
+            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wn8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/molen"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="WN8"
+            android:textColor="@color/dark_yellow"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wn8ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/typewriterbold"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:text="1278"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/wn8"
+            app:layout_constraintStart_toStartOf="@+id/wn8"
+            app:layout_constraintTop_toBottomOf="@+id/wn8" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/favTankId"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="50dp"-->
+<!--            android:fontFamily="@font/typewriterbold"-->
+<!--            android:shadowColor="#000000"-->
+<!--            android:shadowDx="1.5"-->
+<!--            android:shadowDy="1.3"-->
+<!--            android:shadowRadius="1.6"-->
+<!--            android:text="Obj. 279(e)"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="23dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/glHorizontalBottom"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/imageView2"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/guidelineLeft2" />-->
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/wot_tank"
+            app:layout_constraintBottom_toTopOf="@+id/glHorizontalBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/glHorizontal50" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

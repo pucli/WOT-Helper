@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/bottom_nav_selector.xml" value="0.2335" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_input.xml" value="0.2335" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_textbox.xml" value="0.253" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_add.xml" value="0.27" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_email.xml" value="0.124" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_email_focused.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_google.xml" value="0.27" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_launcher_background.xml" value="0.27" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_lock.xml" value="0.27" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_login.xml" value="0.27" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_person.xml" value="0.253" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_person_focused.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_search_location.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_share.xml" value="0.216" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_victories.xml" value="0.253" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/nav_bg.xml" value="0.2335" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/content_main.xml" value="0.36102564102564105" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_forgotpassword.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_home_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_map_characteristics.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_maps.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_natiune_page.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_profil.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tank_characteristics.xml" value="0.5" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tank_found.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tier.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tip_tank_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/layout_home_card.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/menu/home_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.239" />
+        <entry key="..\:/AndroidStudioProjects/WOTHelper/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.239" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_email_icon.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_input.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_lock_icon.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_person_icon.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/custom_textbox.xml" value="0.3235" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_add.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_avgexp.xml" value="0.1" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_battles.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_damage.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_email.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_email_focused.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_google.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_hits.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_lock.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_lock_focused.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_login.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_login_black.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_logout.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_maxdmg.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_maxexp.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_person.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_person_black.xml" value="0.314" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_person_focused.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_search.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_search_location.xml" value="0.365" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_tank.xml" value="0.3605" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_tank_svgrepo_com__1_.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_victories.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_wot.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/drawable/ic_wot_white.xml" value="0.267" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/content_main.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_first.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_home_page.xml" value="0.33" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_natiune_page.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_profil.xml" value="0.46774193548387094" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_register.xml" value="0.33" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tank_found.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tier.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/fragment_tip_tank_page.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/layout/layout_home_card.xml" value="0.25" />
+        <entry key="..\:/Users/sebyp/AndroidStudioProjects/WOTHelper/app/src/main/res/menu/menu_main.xml" value="0.18802083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

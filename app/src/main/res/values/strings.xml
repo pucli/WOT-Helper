@@ -1,0 +1,72 @@
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- App -->
+    <string name="appTitle">WOT HELPER</string>
+    <string name="app_name">WOT-Helper</string>
+
+    <!-- Profile-->
+    <string name="welcome">Welcome!</string>
+    <string name="profile_logged_out">You must authenticate in order to access your profile.</string>
+    <string name="preferences">preferences</string>
+    <string name="profile">Profile</string>
+
+
+    <!-- Authentication -->
+    <string name="login">LOGIN</string>
+    <string name="register">REGISTER</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in_with_google">SIGN IN WITH GOOGLE ACCOUNT</string>
+    <string name="sign_in_with_wargaming">Sign in with your Wargaming Account</string>
+    <string name="username">Username</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="create_account">Create account</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="logout">Logout</string>
+    <string name="reset_password">Reset password</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="password_reset_link">Please enter your email. There you will receive a password reset link</string>
+    <string name="required">Required</string>
+    <string name="min_length_password_error">Password must have at least %d characters</string>
+    <string name="invalid_confirm_password_error">Passwords do not match</string>
+    <string name="invalid_email_error">Please, provide a valid email</string>
+
+    <string name="sign_in_wg_account">Sign in with your WG Account</string>
+
+    <string name="null_string">""</string>
+    <string name="search">Search</string>
+    <string name="or">OR</string>
+
+    <string name="TankCharacteristics">Tank Characteristics</string>
+
+
+    <string name="coming_soon">Coming Soon. Stay tuned!</string>
+
+
+
+    <string name="MapName">MAP NAME</string>
+    <string name="BattleTierLimit">1 - 10</string>
+    <string name="MapSize">1000 x 1000</string>
+    <string name="MapType">Summer</string>
+    <string name="MapDescription">A large abbey and town fill the center of the map with three roads allowing passage from the north and south, and includes an elevated firing position in the abbeys courtyard at the highest point on the hill.</string>
+    <string name="StrategyHeavy">Heavy Tanks:</string>
+    <string name="StrategyMedium">Medium Tanks:</string>
+    <string name="StrategyLight">Light Tanks:</string>
+    <string name="StrategyTD">Tank Destroyers:</string>
+
+
+
+
+</resources>
