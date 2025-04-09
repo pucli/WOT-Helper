@@ -146,6 +146,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWargamingSignIn"
+        style="@style/MaterialButton_AuthenticationStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#241F1F"
+        android:drawableStart="@drawable/ic_wot"
+        android:fontFamily="@font/molen"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="SIGN IN WITH WG ACCOUNT "
+        android:textAlignment="center"
+        android:textColor="@color/auth_button_text_color"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoogleSignIn"
+        app:layout_constraintStart_toStartOf="@+id/btnGoogleSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,24 +198,6 @@
         app:layout_constraintStart_toEndOf="@+id/dividerLeft"
         app:layout_constraintTop_toBottomOf="@+id/dividerLeft" />
 
-
-
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/buttonWargamingSignIn"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:padding="15dp"-->
-<!--        android:backgroundTint="@color/auth_button_background_color"-->
-<!--        android:fontFamily="@font/hello_sunday"-->
-<!--        android:text="@string/sign_in_wg_account"-->
-<!--        android:textSize="16dp"-->
-<!--        android:drawableStart="@drawable/ic_wot"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/btnGoogleSignIn"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btnGoogleSignIn" />-->
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCreateAccount"
         android:layout_width="wrap_content"
@@ -220,7 +221,6 @@
         android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
-
         app:layout_constraintEnd_toStartOf="@id/guidelineLeft2"
         app:layout_constraintStart_toStartOf="@id/guidelineLeft"
         app:layout_constraintTop_toBottomOf="@id/btnCreateAccount" />
