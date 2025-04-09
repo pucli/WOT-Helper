@@ -115,12 +115,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
 
     private fun firebaseSignInWithGoogle(idToken: String) {
-        viewModel.firebaseSignInWithGoogle(idToken).observe(viewLifecycleOwner) { response ->
+        viewModel.firebaseSignInWithGoogle(idToken).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
                 is Response.Success -> {
                     Log.i("firebaseGoogle", response.data.toString())
                     val isNewUser = response.data
-                        progressBar.hide()
+                    progressBar.hide()
                 }
                 is Response.Failure -> {
                     progressBar.hide()
@@ -158,7 +158,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun loginWithEmailAndPassword() {
         progressBar.show()
-        viewModel.firebaseSignInWithEmail(email, password).observe(viewLifecycleOwner) { response ->
+        viewModel.firebaseSignInWithEmail(email, password).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
                 is Response.Success -> progressBar.hide()
                 is Response.Failure -> {

@@ -65,8 +65,7 @@
     <string name="StrategyMedium">Medium Tanks:</string>
     <string name="StrategyLight">Light Tanks:</string>
     <string name="StrategyTD">Tank Destroyers:</string>
-
-
+    <string name="default_web_client_id" />
 
 
 </resources>

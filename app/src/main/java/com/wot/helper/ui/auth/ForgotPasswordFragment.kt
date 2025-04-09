@@ -48,9 +48,9 @@ class ForgotPasswordFragment :
 
     private fun resetPassword() {
         progressBar.show()
-        viewModel.resetPassword(email).observe(viewLifecycleOwner) { response ->
+        viewModel.resetPassword(email).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
-                is Response.Success -> {
+                is Response.Success<Boolean> -> {
                     Toast.makeText(
                         requireContext(),
                         "A password reset link has been sent to $email.",

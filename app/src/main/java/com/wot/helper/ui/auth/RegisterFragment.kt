@@ -40,9 +40,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
 
     private fun register() {
         progressBar.show()
-        viewModel.createAccount(email, password, username).observe(viewLifecycleOwner) { response ->
+        viewModel.createAccount(email, password, username).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
-                is Response.Success -> {
+                is Response.Success<Boolean> -> {
+                    progressBar.hide()
                     navigateToLogin()
                 }
                 is Response.Failure -> {

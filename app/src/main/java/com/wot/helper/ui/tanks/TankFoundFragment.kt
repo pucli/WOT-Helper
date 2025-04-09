@@ -17,7 +17,7 @@ import android.annotation.SuppressLint
 import android.util.Log
 import androidx.appcompat.widget.SearchView
 import com.wot.helper.ui.home.HomePageFragment
-import kotlinx.android.synthetic.main.fragment_tank_found.*
+//import kotlinx.android.synthetic.main.fragment_tank_found.*
 import java.util.*
 
 

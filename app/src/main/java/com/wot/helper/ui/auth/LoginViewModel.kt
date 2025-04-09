@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.wot.helper.common.Constants
 import com.wot.helper.domain.models.use_case.auth.AuthFormState
 import com.wot.helper.domain.models.use_case.auth.AuthUseCases
+import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.use_case.auth.ValidationUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -25,14 +26,14 @@ class LoginViewModel @Inject constructor(
         authUseCases.getAuthState().asLiveData(ioDispatcher + viewModelScope.coroutineContext)
 
     fun firebaseSignInWithEmail(email: String, password: String) =
-        liveData(ioDispatcher + viewModelScope.coroutineContext) {
+        liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
             authUseCases.signInWithEmail(email, password).collect { response ->
                 emit(response)
             }
         }
 
     fun firebaseSignInWithGoogle(idToken: String) =
-        liveData(ioDispatcher + viewModelScope.coroutineContext) {
+        liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
             authUseCases.signInWithGoogle(idToken).collect { response ->
                 emit(response)
             }

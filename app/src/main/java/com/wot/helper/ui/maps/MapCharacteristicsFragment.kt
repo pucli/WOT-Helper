@@ -35,8 +35,6 @@ import com.wot.helper.common.Constants
 import coil.ImageLoader
 import coil.request.ImageRequest
 import coil.request.SuccessResult
-import kotlinx.android.synthetic.main.fragment_map_characteristics.view.*
-import kotlinx.android.synthetic.main.fragment_map_characteristics.*
 import android.widget.Toast;
 import androidx.core.graphics.drawable.toBitmap
 import kotlinx.serialization.json.JsonNull.content
