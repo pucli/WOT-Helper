@@ -2,6 +2,7 @@ package com.wot.helper.ui.auth
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -20,6 +21,7 @@ import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.ui.core.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import androidx.core.net.toUri
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
@@ -28,12 +30,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     lateinit var signInIntent: Intent
 
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var wargamingResultLauncher: ActivityResultLauncher<Intent>
     private val viewModel by viewModels<LoginViewModel>()
 
     private var backPressedTime: Long = 0L
     private lateinit var backPressedToast: Toast
     private lateinit var progressBar: ContentLoadingProgressBar
-
 
     private var email: String = ""
     private var password: String = ""
@@ -43,26 +45,28 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         super.onViewCreated(view, savedInstanceState)
 
         initGoogleResultLauncher()
+        initWargamingResultLauncher()
 
-       binding.apply {
-           this@LoginFragment.progressBar = this.progressBar
+        binding.apply {
+            this@LoginFragment.progressBar = this.progressBar
 
-           btnLogin.setOnClickListener {
-               validateDataAndLogin()
-           }
-           btnCreateAccount.setOnClickListener {
+            btnLogin.setOnClickListener {
+                validateDataAndLogin()
+            }
+            btnCreateAccount.setOnClickListener {
                 navigateToRegister()
-
-           }
-           btnForgotPassword.setOnClickListener {
+            }
+            btnForgotPassword.setOnClickListener {
                 navigateToForgotPassword()
-           }
-
-           btnGoogleSignIn.setOnClickListener {
+            }
+            btnGoogleSignIn.setOnClickListener {
                 launchGoogleSignInIntent()
             }
-           doubleTapToExit()
-       }
+            btnWargamingSignIn.setOnClickListener {
+                launchWargamingSignInIntent()
+            }
+            doubleTapToExit()
+        }
     }
 
     private fun doubleTapToExit() {
@@ -84,13 +88,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             })
     }
 
-
     private fun launchGoogleSignInIntent() {
         progressBar.show()
         resultLauncher.launch(signInIntent)
     }
-
-
 
     private fun initGoogleResultLauncher() {
         resultLauncher =
@@ -113,6 +114,28 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             }
     }
 
+    private fun initWargamingResultLauncher() {
+        wargamingResultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val token = result.data?.getStringExtra("wargaming_auth_token")
+                    if (!token.isNullOrEmpty()) {
+                        firebaseSignInWithWargaming(token)
+                    } else {
+                        progressBar.hide()
+                    }
+                } else {
+                    progressBar.hide()
+                }
+            }
+    }
+
+    private fun launchWargamingSignInIntent() {
+        progressBar.show()
+        val url = viewModel.getWargamingAuthUrl()
+        val intent = Intent(Intent.ACTION_VIEW, url.toUri())
+        wargamingResultLauncher.launch(intent)
+    }
 
     private fun firebaseSignInWithGoogle(idToken: String) {
         viewModel.firebaseSignInWithGoogle(idToken).observe(viewLifecycleOwner) { response: Response<Boolean> ->
@@ -125,6 +148,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 is Response.Failure -> {
                     progressBar.hide()
                     Log.i("firebaseGoogle", response.errorMessage)
+                }
+            }
+        }
+    }
+
+    private fun firebaseSignInWithWargaming(token: String) {
+        viewModel.firebaseSignInWithWargaming(token).observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is Response.Success -> {
+                    Log.i("firebaseWG", response.data.toString())
+                    progressBar.hide()
+                }
+                is Response.Failure -> {
+                    progressBar.hide()
+                    Log.i("firebaseWG", response.errorMessage)
                 }
             }
         }
@@ -173,9 +211,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         }
     }
 
-
     private fun navigateToHome() {
-       val navHome = LoginFragmentDirections.actionGlobalHomePageFragment()
+        val navHome = LoginFragmentDirections.actionGlobalHomePageFragment()
         findNavController().navigate(navHome)
     }
 
@@ -185,7 +222,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     private fun navigateToRegister() {
-       val navRegister = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
+        val navRegister = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         findNavController().navigate(navRegister)
     }
 }

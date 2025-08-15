@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.wot.helper.common.Constants
+import com.wot.helper.domain.models.repository.AuthRepository
 import com.wot.helper.domain.models.use_case.auth.AuthFormState
-import com.wot.helper.domain.models.use_case.auth.AuthUseCases
 import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.use_case.auth.ValidationUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,14 +15,14 @@ import javax.inject.Named
 
 @HiltViewModel
 class ForgotPasswordViewModel @Inject constructor(
-    private val useCases: AuthUseCases,
+    private val authRepository: AuthRepository,
     private val validationUseCases: ValidationUseCases,
     @Named(Constants.IO_DISPATCHER)
     private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     fun resetPassword(email: String) = liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
-        useCases.resetPassword(email).collect { response ->
+        authRepository.sendPasswordResetEmail(email).collect { response ->
             emit(response)
         }
     }

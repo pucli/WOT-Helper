@@ -11,6 +11,7 @@ import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.models.User
 import com.wot.helper.domain.models.repository.AuthRepository
 import kotlinx.coroutines.channels.awaitClose
+
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
@@ -38,7 +39,18 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-
+    override suspend fun firebaseSignInWithWargaming(idToken: String) = flow{
+        // TODO Implement Wargaming sign-in logic
+        try {
+            val credential = GoogleAuthProvider.getCredential(idToken, null)
+            val authResult = auth.signInWithCredential(credential).await()
+            authResult.additionalUserInfo?.apply {
+                emit(Response.Success(isNewUser))
+            }
+        } catch (e: Exception) {
+            emit(Response.Failure(e.message ?: ERROR_MESSAGE))
+        }
+    }
 
     override suspend fun signOut() = flow {
         try {

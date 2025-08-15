@@ -5,12 +5,15 @@ import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.wot.helper.common.Constants
 import com.wot.helper.common.Constants.IO_DISPATCHER
 import com.wot.helper.common.Constants.USERS_REF
 import com.wot.helper.data.AuthRepositoryImpl
 import com.wot.helper.domain.models.repository.AuthRepository
-import com.wot.helper.domain.models.use_case.auth.*
+import com.wot.helper.domain.models.use_case.auth.ValidateConfirmedPassword
+import com.wot.helper.domain.models.use_case.auth.ValidateEmail
+import com.wot.helper.domain.models.use_case.auth.ValidatePassword
+import com.wot.helper.domain.models.use_case.auth.ValidateUsername
+import com.wot.helper.domain.models.use_case.auth.ValidationUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +21,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import java.io.File
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -44,20 +46,6 @@ object AppModule {
     @Named(IO_DISPATCHER)
     fun provideCoroutineDispatcher(): CoroutineDispatcher =
         Dispatchers.IO
-
-    @Singleton
-    @Provides
-    fun provideAuthUseCases(repository: AuthRepository) = AuthUseCases(
-
-        getAuthState = GetAuthState(repository),
-        isLoggedIn = IsLoggedIn(repository),
-        getUserProfile = GetUserProfile(repository),
-        signInWithGoogle = SignInWithGoogle(repository),
-        signOut = SignOut(repository),
-        resetPassword = ResetPassword(repository),
-        signInWithEmail = SignInWithEmail(repository),
-        register = Register(repository)
-    )
 
     @Singleton
     @Provides

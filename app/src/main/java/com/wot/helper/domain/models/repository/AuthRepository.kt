@@ -8,6 +8,8 @@ interface AuthRepository {
 
     suspend fun firebaseSignInWithGoogle(idToken: String): Flow<Response<Boolean>>
 
+    suspend fun firebaseSignInWithWargaming(idToken: String): Flow<Response<Boolean>>
+
     suspend fun firebaseSignInWithEmailAndPassword(
         email: String,
         password: String
@@ -25,4 +27,5 @@ interface AuthRepository {
     fun getUserProfile(): Flow<Response<User>>
 
     fun isUserLoggedIn(): Boolean
+
 }

@@ -6,39 +6,46 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.wot.helper.common.Constants
 import com.wot.helper.domain.models.use_case.auth.AuthFormState
-import com.wot.helper.domain.models.use_case.auth.AuthUseCases
 import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.use_case.auth.ValidationUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 import javax.inject.Named
+import android.net.Uri
+import com.wot.helper.domain.models.repository.AuthRepository
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val authUseCases: AuthUseCases,
+    private val authRepository: AuthRepository,
     private val validationUseCases: ValidationUseCases,
     @Named(Constants.IO_DISPATCHER)
     private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     val authState =
-        authUseCases.getAuthState().asLiveData(ioDispatcher + viewModelScope.coroutineContext)
+        authRepository.getUserAuthState().asLiveData(ioDispatcher + viewModelScope.coroutineContext)
 
     fun firebaseSignInWithEmail(email: String, password: String) =
         liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
-            authUseCases.signInWithEmail(email, password).collect { response ->
+            authRepository.firebaseSignInWithEmailAndPassword(email, password).collect { response ->
                 emit(response)
             }
         }
 
     fun firebaseSignInWithGoogle(idToken: String) =
         liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
-            authUseCases.signInWithGoogle(idToken).collect { response ->
+            authRepository.firebaseSignInWithGoogle(idToken).collect { response ->
                 emit(response)
             }
         }
 
+    fun firebaseSignInWithWargaming(token: String) =
+        liveData<Response<Boolean>>(ioDispatcher + viewModelScope.coroutineContext) {
+            authRepository.firebaseSignInWithWargaming(token).collect { response ->
+                emit(response)
+            }
+        }
 
     fun validateLoginForm(email: String, password: String): AuthFormState {
         val emailResponse = validationUseCases.validateEmail(email = email)
@@ -54,6 +61,17 @@ class LoginViewModel @Inject constructor(
             emailError = emailResponse.errorMessage,
             passwordError = passwordResponse.errorMessage
         )
+    }
+
+    fun getWargamingAuthUrl(): String {
+        return "https://api.worldoftanks.eu/wot/auth/login/?" +
+                "application_id=$WARGAMING_APP_ID&" +
+                "redirect_uri=${Uri.encode(WARGAMING_REDIRECT_URI)}"
+    }
+
+    companion object {
+        private const val WARGAMING_APP_ID = "YOUR_APP_ID" // Replace with your application id later
+        private const val WARGAMING_REDIRECT_URI = "wothelper://wargaming" // Update redirect URI as needed
     }
 
 }
