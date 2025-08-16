@@ -1,4 +1,4 @@
-package com.wot.helper.ui.tanks
+package com.wot.helper.ui.missions
 
 import android.content.Context
 import android.os.Bundle
@@ -7,17 +7,15 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.wot.helper.R
-import com.wot.helper.databinding.FragmentNatiunePageBinding
+import com.wot.helper.databinding.FragmentMissionsPageBinding
 import com.wot.helper.domain.models.models.BasicCard
 import com.wot.helper.ui.adapters.HomePageAdapter
 import com.wot.helper.ui.core.BaseFragment
-import javax.inject.Inject
 import com.wot.helper.ui.core.MainActivity
+import javax.inject.Inject
 import java.util.*
-import com.wot.helper.domain.models.repository.RetrofitInstance
 
-
-class NatiuneFragment : BaseFragment<FragmentNatiunePageBinding>(FragmentNatiunePageBinding::inflate),
+class MissionsFragment : BaseFragment<FragmentMissionsPageBinding>(FragmentMissionsPageBinding::inflate),
     HomePageAdapter.OnCardClickListener {
 
     @Inject
@@ -31,10 +29,18 @@ class NatiuneFragment : BaseFragment<FragmentNatiunePageBinding>(FragmentNatiune
         searchView = view.findViewById(R.id.searchView)
 
         setAdapter()
+        setUpSearchView()
+    }
 
+    private fun setAdapter() {
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = adapter
+        filterCards("") // Show all cards initially
+    }
+
+    private fun setUpSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-
                 return false
             }
 
@@ -47,20 +53,14 @@ class NatiuneFragment : BaseFragment<FragmentNatiunePageBinding>(FragmentNatiune
 
     private fun filterCards(query: String) {
         val filteredList = if (query.isEmpty()) {
-            maps // If query is empty, show all cards
+            missions // If query is empty, show all cards
         } else {
             val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
-            maps.filter { basicCard ->
+            missions.filter { basicCard ->
                 basicCard.title!!.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery)
             }
         }
         adapter.submitList(filteredList)
-    }
-
-    private fun setAdapter() {
-        val recyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
-        filterCards("") // Show all cards initially
     }
 
     private fun setUpBottomNavBar() {
@@ -78,61 +78,44 @@ class NatiuneFragment : BaseFragment<FragmentNatiunePageBinding>(FragmentNatiune
     }
 
     companion object {
-
-        private val maps = arrayListOf(
+        private val missions = arrayListOf(
             BasicCard(
-                "USSR",
-                background = R.drawable.ussr_small
+                "STUG IV",
+                background = R.drawable.stug4
             ),
             BasicCard(
-                "Germany",
-                background = R.drawable.germany_small
+                "T28 Concept",
+                background = R.drawable.t28usa
             ),
             BasicCard(
-                "USA",
-                background = R.drawable.usa_small
+                "T 55A",
+                background = R.drawable.t55a
             ),
             BasicCard(
-                "France",
-                background = R.drawable.france_small
+                "Object 260",
+                background = R.drawable.obj260
             ),
             BasicCard(
-                "Great Britain",
-                background = R.drawable.uk_small
+                "Excalibur",
+                background = R.drawable.excalibur
             ),
             BasicCard(
-                "Czechoslovakia",
-                background = R.drawable.czech_small
+                "Chimera",
+                background = R.drawable.chimera
             ),
             BasicCard(
-                "China",
-                background = R.drawable.china_small
-            ),
-            BasicCard(
-                "Japan",
-                background = R.drawable.japan_small
-            ),
-            BasicCard(
-                "Poland",
-                background = R.drawable.poland_small
-            ),
-            BasicCard(
-                "Sweden",
-                background = R.drawable.sweden_small
-            ),
-            BasicCard(
-                "Italy",
-                background = R.drawable.italy_small
+                "Object 279e",
+                background = R.drawable.wot279
             )
         )
     }
 
     override fun onCardClick(basicCard: BasicCard) {
-            navigateToType(basicCard.title!!.lowercase())
+        navigateToMissionsCharacteristics(basicCard.title!!)
     }
 
-    private fun navigateToType(nation:String) {
-        val navType = NatiuneFragmentDirections.actionNatiuneFragmentToTipTankFragment(nation = nation)
-        findNavController().navigate(navType)
+    private fun navigateToMissionsCharacteristics(title: String) {
+        val navMissionsCharacteristics = MissionsFragmentDirections.actionMissionsFragmentToMissionsCharacteristicsFragment(title = title)
+        findNavController().navigate(navMissionsCharacteristics)
     }
 }

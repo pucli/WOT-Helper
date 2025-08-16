@@ -62,6 +62,9 @@
             <action
                 android:id="@+id/action_homePageFragment_to_profilFragment"
                 app:destination="@id/profilFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_missionsFragment"
+                app:destination="@id/missionsFragment" />
         </fragment>
         <fragment
             android:id="@+id/natiuneFragment"
@@ -147,6 +150,24 @@
                 android:id="@+id/action_mapsFragment_to_mapCharacteristicsFragment"
                 app:destination="@id/mapCharacteristicsFragment" />
         </fragment>
+        <fragment
+            android:id="@+id/missionsFragment"
+            android:name="com.wot.helper.ui.missions.MissionsFragment"
+            android:label="MissionsFragment"
+            tools:layout="@layout/fragment_missions_page">
+            <action
+                android:id="@+id/action_missionsFragment_to_missionsCharacteristicsFragment"
+                app:destination="@id/missionsCharacteristicsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/missionsCharacteristicsFragment"
+            android:name="com.wot.helper.ui.missions.MissionsCharacteristicsFragment"
+            android:label="MissionsCharacteristicsFragment"
+            tools:layout="@layout/fragment_map_characteristics">
+            <argument
+                android:name="title"
+                app:argType="string" />
+        </fragment>
         <action
             android:id="@+id/action_global_auth"
             app:destination="@id/auth"
@@ -154,4 +175,3 @@
             app:popUpToInclusive="true" />
     </navigation>
 </navigation>
-

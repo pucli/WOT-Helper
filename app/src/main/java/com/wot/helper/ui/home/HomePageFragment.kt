@@ -23,7 +23,6 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
     HomePageAdapter.OnCardClickListener {
 
 
-
     @Inject
     lateinit var applicationContext: Context
 
@@ -91,7 +90,6 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
     }
 
 
-
     private fun setUpBottomNavBar() {
         val bottomNav = (requireActivity() as MainActivity).bottomNav
         bottomNav.apply {
@@ -122,11 +120,16 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
                 background = R.drawable.poza_t49_login
             ),
             BasicCard(
-                "Comming Soon",
+                "Missions",
+                background = R.drawable.comming_soon
+            ),
+            BasicCard(
+                "Comming soon",
                 background = R.drawable.comming_soon
             )
         )
     }
+
     override fun onCardClick(basicCard: BasicCard) {
         if (basicCard.title == "Tank Characteristics") {
             navigateToNations()
@@ -134,23 +137,31 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             navigateToMaps()
         } else if (basicCard.title == "Profile") {
             navigateToProfile()
+        } else if (basicCard.title == "Missions") {
+             navigateToMissions()
         }
     }
 
-    private fun navigateToNations() {
-        val navNations = HomePageFragmentDirections.actionHomePageFragmentToNatiuneFragment()
-        findNavController().navigate(navNations)
+        private fun navigateToNations() {
+            val navNations = HomePageFragmentDirections.actionHomePageFragmentToNatiuneFragment()
+            findNavController().navigate(navNations)
+        }
+
+        private fun navigateToMaps() {
+            val navMaps = HomePageFragmentDirections.actionHomePageFragmentToMapsFragment()
+            findNavController().navigate(navMaps)
+        }
+
+        private fun navigateToProfile() {
+            val navProfile = HomePageFragmentDirections.actionHomePageFragmentToProfilFragment()
+            findNavController().navigate(navProfile)
+        }
+        private fun navigateToMissions() {
+            val navMissions = HomePageFragmentDirections.actionHomePageFragmentToMissionsFragment()
+            findNavController().navigate(navMissions)
+    }
     }
 
-    private fun navigateToMaps() {
-        val navMaps = HomePageFragmentDirections.actionHomePageFragmentToMapsFragment()
-        findNavController().navigate(navMaps)
-    }
 
-    private fun navigateToProfile() {
-        val navProfile = HomePageFragmentDirections.actionHomePageFragmentToProfilFragment()
-        findNavController().navigate(navProfile)
-    }
-}
 
 
