@@ -62,6 +62,9 @@
             <action
                 android:id="@+id/action_homePageFragment_to_profilFragment"
                 app:destination="@id/profilFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_missionsFragment"
+                app:destination="@id/missionsFragment" />
         </fragment>
         <fragment
             android:id="@+id/natiuneFragment"
@@ -147,6 +150,46 @@
                 android:id="@+id/action_mapsFragment_to_mapCharacteristicsFragment"
                 app:destination="@id/mapCharacteristicsFragment" />
         </fragment>
+        <fragment
+            android:id="@+id/missionsFragment"
+            android:name="com.wot.helper.ui.missions.MissionsFragment"
+            android:label="Vehicle Missions">
+            <action
+                android:id="@+id/action_missionsFragment_to_campaignFragment"
+                app:destination="@id/campaignFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/campaignFragment"
+            android:name="com.wot.helper.ui.missions.CampaignFragment"
+            android:label="Campaigns">
+            <action
+                android:id="@+id/action_campaignFragment_to_operationFragment"
+                app:destination="@id/operationFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/operationFragment"
+            android:name="com.wot.helper.ui.missions.OperationFragment"
+            android:label="Operations">
+            <action
+                android:id="@+id/action_operationFragment_to_missionListFragment"
+                app:destination="@id/missionListFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/missionListFragment"
+            android:name="com.wot.helper.ui.missions.MissionListFragment"
+            android:label="Missions">
+            <action
+                android:id="@+id/action_missionListFragment_to_missionDetailFragment"
+                app:destination="@id/missionDetailFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/missionDetailFragment"
+            android:name="com.wot.helper.ui.missions.MissionDetailFragment"
+            android:label="Mission Details" />
         <action
             android:id="@+id/action_global_auth"
             app:destination="@id/auth"
@@ -154,4 +197,3 @@
             app:popUpToInclusive="true" />
     </navigation>
 </navigation>
-

@@ -23,7 +23,6 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
     HomePageAdapter.OnCardClickListener {
 
 
-
     @Inject
     lateinit var applicationContext: Context
 
@@ -91,7 +90,6 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
     }
 
 
-
     private fun setUpBottomNavBar() {
         val bottomNav = (requireActivity() as MainActivity).bottomNav
         bottomNav.apply {
@@ -111,22 +109,27 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
         private val maps = arrayListOf(
             BasicCard(
                 "Tank Characteristics",
-                background = R.drawable.tank_charact
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tank_charact.jpg"
             ),
             BasicCard(
                 "Maps",
-                background = R.drawable.maps_bg
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/maps_bg.jpg"
             ),
             BasicCard(
                 "Profile",
-                background = R.drawable.poza_t49_login
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/poza_t49_login.jpg"
             ),
             BasicCard(
-                "Comming Soon",
-                background = R.drawable.comming_soon
+                "Missions",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/comming_soon.jpg"
+            ),
+            BasicCard(
+                "Coming soon",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/cliff.png"
             )
         )
     }
+
     override fun onCardClick(basicCard: BasicCard) {
         if (basicCard.title == "Tank Characteristics") {
             navigateToNations()
@@ -134,23 +137,28 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             navigateToMaps()
         } else if (basicCard.title == "Profile") {
             navigateToProfile()
+        } else if (basicCard.title == "Missions") {
+             navigateToMissions()
         }
     }
 
-    private fun navigateToNations() {
-        val navNations = HomePageFragmentDirections.actionHomePageFragmentToNatiuneFragment()
-        findNavController().navigate(navNations)
+        private fun navigateToNations() {
+            val navNations = HomePageFragmentDirections.actionHomePageFragmentToNatiuneFragment()
+            findNavController().navigate(navNations)
+        }
+
+        private fun navigateToMaps() {
+            val navMaps = HomePageFragmentDirections.actionHomePageFragmentToMapsFragment()
+            findNavController().navigate(navMaps)
+        }
+
+        private fun navigateToProfile() {
+            val navProfile = HomePageFragmentDirections.actionHomePageFragmentToProfilFragment()
+            findNavController().navigate(navProfile)
+        }
+
+        private fun navigateToMissions() {
+            val navMissions = HomePageFragmentDirections.actionHomePageFragmentToMissionsFragment()
+            findNavController().navigate(navMissions)
     }
-
-    private fun navigateToMaps() {
-        val navMaps = HomePageFragmentDirections.actionHomePageFragmentToMapsFragment()
-        findNavController().navigate(navMaps)
     }
-
-    private fun navigateToProfile() {
-        val navProfile = HomePageFragmentDirections.actionHomePageFragmentToProfilFragment()
-        findNavController().navigate(navProfile)
-    }
-}
-
-

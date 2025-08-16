@@ -59,155 +59,155 @@ class MapsFragment : BaseFragment<FragmentMapsBinding>(FragmentMapsBinding::infl
         private val maps = arrayListOf(
             BasicCard(
                 "Abbey",
-                background = R.drawable.abbey
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/abbey.jpg"
             ),
             BasicCard(
                 "Berlin",
-                background = R.drawable.berlin
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/berlin.png"
             ),
             BasicCard(
                 "Cliff",
-                background = R.drawable.cliff
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/cliff.png"
             ),
             BasicCard(
                 "Empire's Border",
-                background = R.drawable.empiresborder
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/empiresborder.jpg"
             ),
             BasicCard(
                 "Ensk",
-                background = R.drawable.ensk
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/ensk.jpg"
             ),
             BasicCard(
                 "Fisherman's Bay",
-                background = R.drawable.fishbay
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/fishbay.jpg"
             ),
             BasicCard(
                 "Fjords",
-                background = R.drawable.fjord
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/fjord.jpg"
             ),
             BasicCard(
                 "Highway",
-                background = R.drawable.highway
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/highway.jpg"
             ),
             BasicCard(
                 "Himmelsdorf",
-                background = R.drawable.maps_bg
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/maps_bg.jpg"
             ),
             BasicCard(
                 "Karelia",
-                background = R.drawable.karelia
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/karelia.jpg"
             ),
             BasicCard(
                 "Lakeville",
-                background = R.drawable.lakeville
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/lakeville.jpg"
             ),
             BasicCard(
                 "Live Oaks",
-                background = R.drawable.liveoaks
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/liveoaks.jpg"
             ),
             BasicCard(
                 "Malinovka",
-                background = R.drawable.malinovka
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/malinovka.png"
             ),
             BasicCard(
                 "Mines",
-                background = R.drawable.mines
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/mines.jpg"
             ),
             BasicCard(
                 "Mountain Pass",
-                background = R.drawable.mountainpass
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/mountainpass.jpg"
             ),
             BasicCard(
                 "Murovanka",
-                background = R.drawable.murovanka
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/murovanka.jpg"
             ),
             BasicCard(
                 "Overlord",
-                background = R.drawable.overlord
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/overlord.jpg"
             ),
             BasicCard(
                 "Paris",
-                background = R.drawable.paris
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/paris.jpg"
             ),
             BasicCard(
                 "Pearl River",
-                background = R.drawable.pearlriver
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/pearlriver.jpg"
             ),
             BasicCard(
                 "Pilsen",
-                background = R.drawable.pilsen
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/pilsen.jpg"
             ),
             BasicCard(
                 "Prokhorovka",
-                background = R.drawable.prokhorovka
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/prokhorovka.jpg"
             ),
             BasicCard(
                 "Province",
-                background = R.drawable.province
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/province.jpg"
             ),
             BasicCard(
                 "Redshire",
-                background = R.drawable.redshire
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/redshire.jpg"
             ),
             BasicCard(
                 "Ruinberg",
-                background = R.drawable.ruineberg
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/ruineberg.jpg"
             ),
             BasicCard(
                 "Serene Coast",
-                background = R.drawable.serenecoast
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/serenecoast.jpg"
             ),
             BasicCard(
                 "Siegfried Line",
-                background = R.drawable.siegfriedline
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/siegfriedline.jpg"
             ),
             BasicCard(
                 "Steppes",
-                background = R.drawable.steppes
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/steppes.jpg"
             ),
             BasicCard(
                 "Studzianki",
-                background = R.drawable.studzianki
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/studzianki.jpg"
             ),
             BasicCard(
                 "Tundra",
-                background = R.drawable.tundra
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tundra.jpg"
             ),
             BasicCard(
                 "Westfield",
-                background = R.drawable.westfield
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/westfield.jpg"
             ),
             BasicCard(
                 "Widepark",
-                background = R.drawable.widepark
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/widepark.jpg"
             ),
             BasicCard(
                 "Erlenberg",
-                background = R.drawable.erlenberg
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/erlenberg.jpg"
             ),
             BasicCard(
                 "Mannerheim Line",
-                background = R.drawable.mannerheimline
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/mannerheimline.png"
             ),
             BasicCard(
                 "Glacier",
-                background = R.drawable.glacier
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/glacier.jpg"
             ),
             BasicCard(
                 "Airfield",
-                background = R.drawable.airfield
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/airfield.jpg"
             ),
             BasicCard(
                 "El Halluf",
-                background = R.drawable.el_halluf
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/el_halluf.jpg"
             ),
             BasicCard(
                 "Ghost Town",
-                background = R.drawable.ghosttown
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/ghosttown.jpg"
             ),
             BasicCard(
                 "Sand River",
-                background = R.drawable.sand_river
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/sand_river.jpg"
             )
         )
     }

@@ -62,61 +62,61 @@ class TierFragment : BaseFragment<FragmentTierBinding>(FragmentTierBinding::infl
         private val maps = arrayListOf(
             BasicCard(
                 "TIER",
-                background = R.drawable.tier10,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier10.png",
                 tier = 10,
                 tierString = "10 X"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier9,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier9.png",
                 tier = 9,
                 tierString = "9 IX"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier8,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier8.png",
                 tier = 8,
                 tierString = "8 VIII"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier7,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier7.png",
                 tier = 7,
                 tierString = "7 VII"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier6,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier6.png",
                 tier = 6,
                 tierString = "6 VI"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier5,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier5.png",
                 tier = 5,
                 tierString = "5 V"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier4,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier4.png",
                 tier = 4,
                 tierString = "4 IV"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier3,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier3.png",
                 tier = 3,
                 tierString = "3 III"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier2 ,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier2.png" ,
                 tier = 2,
                 tierString = "2 II"
             ),
             BasicCard(
                 "TIER",
-                background = R.drawable.tier1,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tier1.png",
                 tier = 1,
                 tierString = "1 I"
             )

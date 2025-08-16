@@ -1,3 +1,8 @@
 package com.wot.helper.domain.models.models
 
-data class TankInfo(val imageResId: Int, val description: String, val cons: String, val pros: String)
+data class TankInfo(
+    val imageUrl: String,
+    val description: String,
+    val cons: String,
+    val pros: String
+)
