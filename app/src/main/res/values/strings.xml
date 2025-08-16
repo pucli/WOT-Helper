@@ -67,5 +67,6 @@
     <string name="StrategyTD">Tank Destroyers:</string>
     <string name="default_web_client_id" />
 
+    <string name="title_vehicle_sets">Personal Missions</string>
 
 </resources>
