@@ -25,7 +25,7 @@
         style="@style/TextView_Title_Shadow_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MISSIONS"
+        android:text="CAMPAINGS"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

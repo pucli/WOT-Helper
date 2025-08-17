@@ -66,14 +66,14 @@
                 android:id="@+id/action_homePageFragment_to_profilFragment"
                 app:destination="@id/profilFragment" />
             <action
-                android:id="@+id/action_homePageFragment_to_missionsFragment"
-                app:destination="@id/missionsFragment" />
-            <action
                 android:id="@+id/action_homePageFragment_to_mapStats"
                 app:destination="@id/mapStats" />
             <action
                 android:id="@+id/action_homePageFragment_to_tankStats"
                 app:destination="@id/tankStats" />
+            <action
+                android:id="@+id/action_homePageFragment_to_missionsFragment"
+                app:destination="@id/campaignFragment" />
         </fragment>
 
         <fragment
@@ -168,24 +168,6 @@
         </fragment>
 
         <fragment
-            android:id="@+id/missionsFragment"
-            android:name="com.wot.helper.ui.missions.MissionsFragment"
-            android:label="Vehicle Missions">
-            <action
-                android:id="@+id/action_missionsFragment_to_campaignFragment"
-                app:destination="@id/campaignFragment" />
-        </fragment>
-
-        <fragment
-            android:id="@+id/campaignFragment"
-            android:name="com.wot.helper.ui.missions.CampaignFragment"
-            android:label="Campaigns">
-            <action
-                android:id="@+id/action_campaignFragment_to_operationFragment"
-                app:destination="@id/operationFragment" />
-        </fragment>
-
-        <fragment
             android:id="@+id/mapStats"
             android:name="com.wot.helper.ui.mapstats.MapStatsFragment"
             android:label="MapStats"/>
@@ -195,34 +177,73 @@
             android:name="com.wot.helper.ui.tankstats.TankstatsFragment"
             android:label="Tank Stats"/>
 
-        <fragment
-            android:id="@+id/operationFragment"
-            android:name="com.wot.helper.ui.missions.OperationFragment"
-            android:label="Operations">
-            <action
-                android:id="@+id/action_operationFragment_to_missionListFragment"
-                app:destination="@id/missionListFragment" />
-        </fragment>
-
-        <fragment
-            android:id="@+id/missionListFragment"
-            android:name="com.wot.helper.ui.missions.MissionListFragment"
-            android:label="Missions">
-            <action
-                android:id="@+id/action_missionListFragment_to_missionDetailFragment"
-                app:destination="@id/missionDetailFragment" />
-        </fragment>
-
-        <fragment
-            android:id="@+id/missionDetailFragment"
-            android:name="com.wot.helper.ui.missions.MissionDetailFragment"
-            android:label="Mission Details" />
-
         <action
             android:id="@+id/action_global_auth"
             app:destination="@id/auth"
             app:popUpTo="@id/profilFragment"
             app:popUpToInclusive="true" />
+        <fragment
+            android:id="@+id/campaignFragment"
+            android:name="com.wot.helper.ui.missions.CampaignsFragment"
+            android:label="MissionsFragment"
+            tools:layout="@layout/fragment_campaings_page">
+            <action
+                android:id="@+id/action_campaignFragment_to_campaignTankFragment"
+                app:destination="@id/campaignTankFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/campaignTankFragment"
+            android:name="com.wot.helper.ui.missions.CampaignTankFragment"
+            android:label="CampaignTankFragment"
+            tools:layout="@layout/fragment_campaigntank">
+            <argument
+                android:name="campaign"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_campaignTankFragment_to_missionType"
+                app:destination="@id/missionType" />
+            <action
+                android:id="@+id/action_missionType_to_missionListFragment"
+                app:destination="@id/missionDescription" />
+        </fragment>
+        <fragment
+            android:id="@+id/missionType"
+            android:name="com.wot.helper.ui.missions.MissionType"
+            android:label="MissionType"
+            tools:layout="@layout/fragment_mission_type">
+            <argument
+                android:name="campaign"
+                app:argType="string" />
+
+            <argument
+                android:name="tank"
+                app:argType="string" />
+            <action
+                android:id="@+id/action_missionType_to_missionDescription"
+                app:destination="@id/missionDescription" />
+        </fragment>
+        <fragment
+            android:id="@+id/missionDescription"
+            android:name="com.wot.helper.ui.missions.MissionDescription"
+            android:label="MissionDescription"
+            tools:layout="@layout/fragment_mission_description">
+
+            <argument
+                android:name="campaign"
+                app:argType="string" />
+
+            <argument
+                android:name="tank"
+                app:argType="string" />
+
+            <argument
+                android:name="missionType"
+                app:argType="string" />
+        </fragment>
+
+
+
+
 
     </navigation>
 </navigation>
