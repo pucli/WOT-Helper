@@ -4,9 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
 import com.wot.helper.common.Constants.IO_DISPATCHER
-import com.wot.helper.common.Constants.USERS_REF
 import com.wot.helper.data.AuthRepositoryImpl
 import com.wot.helper.domain.models.repository.AuthRepository
 import com.wot.helper.domain.models.use_case.auth.ValidateConfirmedPassword
@@ -37,9 +35,8 @@ object AppModule {
     @Provides
     fun provideAuthRepository(
         googleSignInClient: GoogleSignInClient,
-        auth: FirebaseAuth,
-        @Named(USERS_REF) usersRef: CollectionReference
-    ): AuthRepository = AuthRepositoryImpl(googleSignInClient, auth, usersRef)
+        auth: FirebaseAuth
+    ): AuthRepository = AuthRepositoryImpl(googleSignInClient, auth)
 
     @Singleton
     @Provides
