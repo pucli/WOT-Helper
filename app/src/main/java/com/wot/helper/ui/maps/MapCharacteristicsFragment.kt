@@ -132,6 +132,20 @@ class MapCharacteristicsFragment : BaseFragment<FragmentMapCharacteristicsBindin
     private fun changeDescription() {
         // Data for maps
         val mapData = mapOf(
+            "Abbey" to MapInfo(
+                image2 = "https://raw.githubusercontent.com/pucli/wotimg/main/abbey1.png",
+                image3 = "https://raw.githubusercontent.com/pucli/wotimg/main/abbey2.png",
+                name = "Abbey",
+                tier = "4 - 10",
+                size = "1000 x 1000",
+                type = "Summer",
+                description = "A large abbey and town fill the center of the map with three roads allowing passage from the north and south, and includes an elevated firing position in the abbeys courtyard at the highest point on the hill.",
+                strategyLight = "In the middle to give support for East and West flank.",
+                strategyMedium = "Try getting the East Flank with Support of Tank Destroyers.",
+                strategyHeavy = "Go in the West, where there are a lot of oportunities to sidescrap and stay hulldown.",
+                strategyTD = "Give support on the East flank or stay near the base in the bushes to snipe from the back."
+
+            ),
             "Berlin" to MapInfo(
                 image2 = "https://raw.githubusercontent.com/pucli/wotimg/main/berlin2.png",
                 image3 = "https://raw.githubusercontent.com/pucli/wotimg/main/berlin1.png",
@@ -251,7 +265,7 @@ class MapCharacteristicsFragment : BaseFragment<FragmentMapCharacteristicsBindin
         ),
         "Lakeville" to MapInfo(
             image2 = "https://raw.githubusercontent.com/pucli/wotimg/main/lakeville2.png",
-            image3 = "https://raw.githubusercontent.com/pucli/wotimg/main/lakeville1.png",
+            image3 = "https://raw.githubusercontent.com/pucli/wotimg/main/lakeville1.jpg",
             name = "Lakeville",
             tier = "4 - 10",
             size = "800 x 800",
@@ -551,7 +565,7 @@ class MapCharacteristicsFragment : BaseFragment<FragmentMapCharacteristicsBindin
                 strategyTD = "Support vehicles can thrive in spawning areas to the south-west and north-east. Use concealed positions and the good viewpoints they offer to wear down enemies and support a push."
             ),
             "Mannerheim Line" to MapInfo(
-                image2 = "https://raw.githubusercontent.com/pucli/wotimg/main/mannerheim2.png",
+                image2 = "https://raw.githubusercontent.com/pucli/wotimg/main/mannerheim2.jpg",
                 image3 = "https://raw.githubusercontent.com/pucli/wotimg/main/mannerheim1.png",
                 name = "Mannerheim Line",
                 tier = "4 - 10",
