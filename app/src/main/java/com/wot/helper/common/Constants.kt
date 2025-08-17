@@ -29,4 +29,7 @@ object Constants {
     const val IMAGE_TYPE = "jpg"
     const val SHARE_TUTORIAL_TEXT = "Check out other information on WoT Helper!"
 
+
+    const val app_name = "WoT Helper"
+    const val title_vehicle_sets = "Personal Missions"
 }

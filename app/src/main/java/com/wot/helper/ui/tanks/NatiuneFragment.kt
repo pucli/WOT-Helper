@@ -82,47 +82,47 @@ class NatiuneFragment : BaseFragment<FragmentNatiunePageBinding>(FragmentNatiune
         private val maps = arrayListOf(
             BasicCard(
                 "USSR",
-                background = R.drawable.ussr_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/ussr_small.png"
             ),
             BasicCard(
                 "Germany",
-                background = R.drawable.germany_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/germany_small.png"
             ),
             BasicCard(
                 "USA",
-                background = R.drawable.usa_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/usa_small.png"
             ),
             BasicCard(
                 "France",
-                background = R.drawable.france_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/france_small.png"
             ),
             BasicCard(
                 "Great Britain",
-                background = R.drawable.uk_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/uk_small.png"
             ),
             BasicCard(
                 "Czechoslovakia",
-                background = R.drawable.czech_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/czech_small.png"
             ),
             BasicCard(
                 "China",
-                background = R.drawable.china_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/china_small.png"
             ),
             BasicCard(
                 "Japan",
-                background = R.drawable.japan_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/japan_small.png"
             ),
             BasicCard(
                 "Poland",
-                background = R.drawable.poland_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/poland_small.png"
             ),
             BasicCard(
                 "Sweden",
-                background = R.drawable.sweden_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/sweden_small.png"
             ),
             BasicCard(
                 "Italy",
-                background = R.drawable.italy_small
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/italy_small.png"
             )
         )
     }

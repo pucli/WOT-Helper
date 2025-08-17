@@ -66,22 +66,22 @@ class TipTankFragment : BaseFragment<FragmentTipTankPageBinding>(FragmentTipTank
         private val maps = arrayListOf(
             BasicCard(
                 "Light Tanks",
-                background = R.drawable.light_tanks,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/light_tanks.png",
                 type = "lightTank"
             ),
             BasicCard(
                 "Medium Tanks",
-                background = R.drawable.medium_tanks,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/medium_tanks.png",
                 type = "mediumTank"
             ),
             BasicCard(
                 "Heavy Tanks",
-                background = R.drawable.heavy_tanks,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/heavy_tanks.png",
                 type = "heavyTank"
             ),
             BasicCard(
                 "Tank Destroyers",
-                background = R.drawable.tank_destroyers,
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tank_destroyers.png",
                 type = "AT-SPG"
             )
         )
