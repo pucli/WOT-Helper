@@ -4,12 +4,12 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,8 +20,8 @@ import com.wot.helper.databinding.FragmentLoginBinding
 import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.ui.core.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.browser.customtabs.CustomTabsIntent
 import javax.inject.Inject
-import androidx.core.net.toUri
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
@@ -30,7 +30,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     lateinit var signInIntent: Intent
 
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
-    private lateinit var wargamingResultLauncher: ActivityResultLauncher<Intent>
     private val viewModel by viewModels<LoginViewModel>()
 
     private var backPressedTime: Long = 0L
@@ -40,12 +39,16 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private var email: String = ""
     private var password: String = ""
 
+    companion object {
+        private const val WARGAMING_APP_ID = "ace14516f4be72cde04425adca560339"
+        private const val WARGAMING_REDIRECT_URI = "http://10.0.2.2:5001/wot-helper-edc0c/us-central1/handleWargamingRedirect"
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         checkUserState()
         super.onViewCreated(view, savedInstanceState)
 
         initGoogleResultLauncher()
-        initWargamingResultLauncher()
 
         binding.apply {
             this@LoginFragment.progressBar = this.progressBar
@@ -66,6 +69,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 launchWargamingSignInIntent()
             }
             doubleTapToExit()
+        }
+
+        // Handle deep link
+        arguments?.getString("deep_link_uri")?.let { uriString ->
+            val uri = uriString.toUri()
+            if (uri.scheme == "wot-helper" && uri.host == "callback") {
+                val customToken = uri.getQueryParameter("custom_token")
+                if (!customToken.isNullOrEmpty()) {
+                    progressBar.show()
+                    firebaseSignInWithWargaming(customToken)
+                } else {
+                    progressBar.hide()
+                    Toast.makeText(requireContext(), "No custom token received", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
@@ -106,23 +124,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                             }
                         }
                     } catch (e: ApiException) {
-                        print(e.message)
-                    }
-                } else {
-                    progressBar.hide()
-                }
-            }
-    }
-
-    private fun initWargamingResultLauncher() {
-        wargamingResultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                if (result.resultCode == RESULT_OK) {
-                    val token = result.data?.getStringExtra("wargaming_auth_token")
-                    if (!token.isNullOrEmpty()) {
-                        firebaseSignInWithWargaming(token)
-                    } else {
                         progressBar.hide()
+                        Toast.makeText(requireContext(), "Google Sign-In failed: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     progressBar.hide()
@@ -132,37 +135,36 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun launchWargamingSignInIntent() {
         progressBar.show()
-        val url = viewModel.getWargamingAuthUrl()
-        val intent = Intent(Intent.ACTION_VIEW, url.toUri())
-        wargamingResultLauncher.launch(intent)
+        val url = "https://api.worldoftanks.eu/wot/auth/login/?" +
+                "application_id=$WARGAMING_APP_ID&" +
+                "redirect_uri=${Uri.encode(WARGAMING_REDIRECT_URI)}"
+        val intent = CustomTabsIntent.Builder().build()
+        intent.launchUrl(requireContext(), url.toUri())
     }
 
     private fun firebaseSignInWithGoogle(idToken: String) {
         viewModel.firebaseSignInWithGoogle(idToken).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
                 is Response.Success -> {
-                    Log.i("firebaseGoogle", response.data.toString())
-                    val isNewUser = response.data
                     progressBar.hide()
                 }
                 is Response.Failure -> {
                     progressBar.hide()
-                    Log.i("firebaseGoogle", response.errorMessage)
+                    Toast.makeText(requireContext(), "Google Sign-In error: ${response.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 
     private fun firebaseSignInWithWargaming(token: String) {
-        viewModel.firebaseSignInWithWargaming(token).observe(viewLifecycleOwner) { response ->
+        viewModel.firebaseSignInWithWargaming(token).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
                 is Response.Success -> {
-                    Log.i("firebaseWG", response.data.toString())
                     progressBar.hide()
                 }
                 is Response.Failure -> {
                     progressBar.hide()
-                    Log.i("firebaseWG", response.errorMessage)
+                    Toast.makeText(requireContext(), "Wargaming Sign-In error: ${response.errorMessage}", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -170,8 +172,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
 
     private fun checkUserState() {
         viewModel.authState.observe(viewLifecycleOwner) { isLoggedIn ->
-            if (isLoggedIn)
+            if (isLoggedIn) {
                 navigateToHome()
+            }
         }
     }
 
@@ -198,7 +201,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         progressBar.show()
         viewModel.firebaseSignInWithEmail(email, password).observe(viewLifecycleOwner) { response: Response<Boolean> ->
             when (response) {
-                is Response.Success -> progressBar.hide()
+                is Response.Success -> {
+                    progressBar.hide()
+                }
                 is Response.Failure -> {
                     progressBar.hide()
                     Toast.makeText(
@@ -224,5 +229,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     private fun navigateToRegister() {
         val navRegister = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
         findNavController().navigate(navRegister)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        progressBar.hide()
     }
 }

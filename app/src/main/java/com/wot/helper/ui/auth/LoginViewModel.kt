@@ -10,10 +10,9 @@ import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.use_case.auth.ValidationUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import com.wot.helper.domain.models.repository.AuthRepository
 import javax.inject.Inject
 import javax.inject.Named
-import android.net.Uri
-import com.wot.helper.domain.models.repository.AuthRepository
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
@@ -62,16 +61,4 @@ class LoginViewModel @Inject constructor(
             passwordError = passwordResponse.errorMessage
         )
     }
-
-    fun getWargamingAuthUrl(): String {
-        return "https://api.worldoftanks.eu/wot/auth/login/?" +
-                "application_id=$WARGAMING_APP_ID&" +
-                "redirect_uri=${Uri.encode(WARGAMING_REDIRECT_URI)}"
-    }
-
-    companion object {
-        private const val WARGAMING_APP_ID = "YOUR_APP_ID" // Replace with your application id later
-        private const val WARGAMING_REDIRECT_URI = "wothelper://wargaming" // Update redirect URI as needed
-    }
-
 }

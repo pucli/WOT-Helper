@@ -4,27 +4,21 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.userProfileChangeRequest
-import com.google.firebase.firestore.CollectionReference
 import com.wot.helper.common.Constants.ERROR_MESSAGE
-import com.wot.helper.common.Constants.USERS_REF
-import com.wot.helper.domain.models.use_case.auth.Response
 import com.wot.helper.domain.models.models.User
 import com.wot.helper.domain.models.repository.AuthRepository
+import com.wot.helper.domain.models.use_case.auth.Response
 import kotlinx.coroutines.channels.awaitClose
-
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-import javax.inject.Named
 import javax.inject.Singleton
-
 
 @Singleton
 class AuthRepositoryImpl @Inject constructor(
     private val googleSignInClient: GoogleSignInClient,
-    private val auth: FirebaseAuth,
-    @Named(USERS_REF) private val usersRef: CollectionReference
+    private val auth: FirebaseAuth
 ) : AuthRepository {
 
     override suspend fun firebaseSignInWithGoogle(idToken: String) = flow {
@@ -39,11 +33,10 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun firebaseSignInWithWargaming(idToken: String) = flow{
-        // TODO Implement Wargaming sign-in logic
+    override suspend fun firebaseSignInWithWargaming(token: String) = flow {
         try {
-            val credential = GoogleAuthProvider.getCredential(idToken, null)
-            val authResult = auth.signInWithCredential(credential).await()
+            // Directly use the provided token as a custom token
+            val authResult = auth.signInWithCustomToken(token).await()
             authResult.additionalUserInfo?.apply {
                 emit(Response.Success(isNewUser))
             }
@@ -80,7 +73,7 @@ class AuthRepositoryImpl @Inject constructor(
     override fun getUserProfile() = flow {
         try {
             auth.currentUser?.apply {
-                val user = User(email, displayName)
+                val user = User(email, displayName, uid)
                 emit(Response.Success(user))
             }
         } catch (e: Exception) {
