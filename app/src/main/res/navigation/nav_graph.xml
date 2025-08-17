@@ -41,13 +41,16 @@
             app:popUpTo="@id/auth"
             app:popUpToInclusive="true" />
     </navigation>
+
     <navigation android:id="@+id/mainapp"
         app:startDestination="@id/homePageFragment">
+
         <fragment
             android:id="@+id/profilFragment"
             android:name="com.wot.helper.ui.profile.ProfileFragment"
             android:label="fragment_profil"
             tools:layout="@layout/fragment_profil"/>
+
         <fragment
             android:id="@+id/homePageFragment"
             android:name="com.wot.helper.ui.home.HomePageFragment"
@@ -65,7 +68,14 @@
             <action
                 android:id="@+id/action_homePageFragment_to_missionsFragment"
                 app:destination="@id/missionsFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_mapStats"
+                app:destination="@id/mapStats" />
+            <action
+                android:id="@+id/action_homePageFragment_to_tankStats"
+                app:destination="@id/tankStats" />
         </fragment>
+
         <fragment
             android:id="@+id/natiuneFragment"
             android:name="com.wot.helper.ui.tanks.NatiuneFragment"
@@ -75,6 +85,7 @@
                 android:id="@+id/action_natiuneFragment_to_tipTankFragment"
                 app:destination="@id/tipTankFragment" />
         </fragment>
+
         <fragment
             android:id="@+id/tipTankFragment"
             android:name="com.wot.helper.ui.tanks.TipTankFragment"
@@ -87,6 +98,7 @@
                 android:name="nation"
                 app:argType="string" />
         </fragment>
+
         <fragment
             android:id="@+id/tierFragment"
             android:name="com.wot.helper.ui.tanks.TierFragment"
@@ -102,6 +114,7 @@
                 android:name="nation"
                 app:argType="string" />
         </fragment>
+
         <fragment
             android:id="@+id/tankFoundFragment"
             android:name="com.wot.helper.ui.tanks.TankFoundFragment"
@@ -123,6 +136,7 @@
                 android:id="@+id/action_tankFoundFragment_to_tierFragment"
                 app:destination="@id/tierFragment" />
         </fragment>
+
         <fragment
             android:id="@+id/tankCharacteristicsFragment"
             android:name="com.wot.helper.ui.tanks.TankCharacteristicsFragment"
@@ -132,6 +146,7 @@
                 android:name="title"
                 app:argType="string" />
         </fragment>
+
         <fragment
             android:id="@+id/mapCharacteristicsFragment"
             android:name="com.wot.helper.ui.maps.MapCharacteristicsFragment"
@@ -141,6 +156,7 @@
                 android:name="title"
                 app:argType="string" />
         </fragment>
+
         <fragment
             android:id="@+id/mapsFragment"
             android:name="com.wot.helper.ui.maps.MapsFragment"
@@ -150,6 +166,7 @@
                 android:id="@+id/action_mapsFragment_to_mapCharacteristicsFragment"
                 app:destination="@id/mapCharacteristicsFragment" />
         </fragment>
+
         <fragment
             android:id="@+id/missionsFragment"
             android:name="com.wot.helper.ui.missions.MissionsFragment"
@@ -167,6 +184,16 @@
                 android:id="@+id/action_campaignFragment_to_operationFragment"
                 app:destination="@id/operationFragment" />
         </fragment>
+
+        <fragment
+            android:id="@+id/mapStats"
+            android:name="com.wot.helper.ui.mapstats.MapStatsFragment"
+            android:label="MapStats"/>
+
+        <fragment
+            android:id="@+id/tankStats"
+            android:name="com.wot.helper.ui.tankstats.TankstatsFragment"
+            android:label="Tank Stats"/>
 
         <fragment
             android:id="@+id/operationFragment"
@@ -190,10 +217,12 @@
             android:id="@+id/missionDetailFragment"
             android:name="com.wot.helper.ui.missions.MissionDetailFragment"
             android:label="Mission Details" />
+
         <action
             android:id="@+id/action_global_auth"
             app:destination="@id/auth"
             app:popUpTo="@id/profilFragment"
             app:popUpToInclusive="true" />
+
     </navigation>
 </navigation>

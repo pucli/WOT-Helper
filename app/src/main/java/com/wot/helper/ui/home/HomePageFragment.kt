@@ -124,6 +124,14 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/comming_soon.jpg"
             ),
             BasicCard(
+                "Tank Stats",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/tankstats.jpg"
+            ),
+            BasicCard(
+                "Map Stats",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/mapstats.png"
+            ),
+            BasicCard(
                 "Coming soon",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/cliff.png"
             )
@@ -139,6 +147,10 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             navigateToProfile()
         } else if (basicCard.title == "Missions") {
              navigateToMissions()
+        } else if (basicCard.title == "Tank Stats") {
+            navigateToTankStats()
+        } else if (basicCard.title == "Map Stats") {
+            navigateToMapStats()
         }
     }
 
@@ -161,4 +173,15 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             val navMissions = HomePageFragmentDirections.actionHomePageFragmentToMissionsFragment()
             findNavController().navigate(navMissions)
     }
+
+        private fun navigateToTankStats() {
+            val navNations = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
+            findNavController().navigate(navNations)
+    }
+
+        private fun navigateToMapStats() {
+            val navNations = HomePageFragmentDirections.actionHomePageFragmentToMapStats()
+            findNavController().navigate(navNations)
+    }
+
     }
