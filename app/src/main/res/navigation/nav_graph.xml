@@ -77,8 +77,17 @@
             <action
                 android:id="@+id/action_homePageFragment_to_achievementsFragment"
                 app:destination="@id/achievementsFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_skillsFragment"
+                app:destination="@id/skillsFragment" />
         </fragment>
 
+
+        <fragment
+            android:id="@+id/skillsFragment"
+            android:name="com.wot.helper.ui.skills.SkillsFragment"
+            android:label="SkillsFragment"
+            tools:layout="@layout/fragment_skills"/>
 
         <fragment
             android:id="@+id/achievementsFragment"

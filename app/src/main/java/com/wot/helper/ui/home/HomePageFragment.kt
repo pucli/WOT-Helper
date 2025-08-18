@@ -125,6 +125,10 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/achievements.jpg"
             ),
             BasicCard(
+                "Skills",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/achievements.jpg"
+            ),
+            BasicCard(
                 "Tank Stats",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/tankstats.jpg"
             ),
@@ -160,6 +164,9 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
         else if (basicCard.title == "Achievements") {
             navigateToAchievements()
         }
+        else if (basicCard.title == "Skills") {
+            navigateToSkills()
+        }
     }
 
         private fun navigateToNations() {
@@ -180,20 +187,24 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
         private fun navigateToMissions() {
             val navMissions = HomePageFragmentDirections.actionHomePageFragmentToMissionsFragment()
             findNavController().navigate(navMissions)
-    }
+        }
 
         private fun navigateToTankStats() {
             val navNations = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
             findNavController().navigate(navNations)
-    }
-    private fun navigateToMapStats() {
-        val navMapStats = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
-        findNavController().navigate(navMapStats)
-    }
+        }
+        private fun navigateToMapStats() {
+            val navMapStats = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
+            findNavController().navigate(navMapStats)
+        }
 
         private fun navigateToAchievements() {
             val navAchievementsFragment = HomePageFragmentDirections.actionHomePageFragmentToAchievementsFragment()
             findNavController().navigate(navAchievementsFragment)
-    }
+        }
+        private fun navigateToSkills() {
+            val navSkillsFragment = HomePageFragmentDirections.actionHomePageFragmentToSkillsFragment()
+            findNavController().navigate(navSkillsFragment)
+        }
 
     }

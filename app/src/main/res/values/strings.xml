@@ -69,5 +69,8 @@
 
     <string name="title_vehicle_sets">Personal Missions</string>
     <string name="achievement_image">Medal</string>
+    <string name="skill_image">Skills</string>
+    <string name="application_id">ace14516f4be72cde04425adca560339</string>
+
 
 </resources>

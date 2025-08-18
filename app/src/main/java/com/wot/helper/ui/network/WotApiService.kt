@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WoTApiService {
-    @GET("wot/encyclopedia/achievements/") // Ensure this matches the API endpoint
+    @GET("wot/encyclopedia/achievements/")
     suspend fun getAchievements(
-        @Query("application_id") appId: String // Ensure this matches the API parameter
+        @Query("application_id") appId: String
     ): Response<AchievementsResponse>
 }
