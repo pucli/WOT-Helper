@@ -125,8 +125,8 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/achievements.jpg"
             ),
             BasicCard(
-                "Skills",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/achievements.jpg"
+                "Crew Skills",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/skills.jpg"
             ),
             BasicCard(
                 "Tank Stats",
@@ -164,7 +164,7 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
         else if (basicCard.title == "Achievements") {
             navigateToAchievements()
         }
-        else if (basicCard.title == "Skills") {
+        else if (basicCard.title == "Crew Skills") {
             navigateToSkills()
         }
     }
