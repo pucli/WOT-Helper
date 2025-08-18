@@ -1,0 +1,44 @@
+<!-- Achievement item layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darker">
+
+    <ImageView
+        android:id="@+id/achievementImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/achievement_image"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/achievementName"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"/>
+
+    <TextView
+        android:id="@+id/achievementDesc"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"/>
+
+    <TextView
+        android:id="@+id/achievementInfo"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:textColor="@android:color/darker_gray"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"/>
+</LinearLayout>

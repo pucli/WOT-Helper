@@ -108,20 +108,21 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
 
         private val maps = arrayListOf(
             BasicCard(
-                "Tank Characteristics",
+                "Tanks",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/tank_charact.jpg"
             ),
             BasicCard(
                 "Maps",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/maps_bg.jpg"
             ),
-            BasicCard(
-                "Profile",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/poza_t49_login.jpg"
-            ),
+
             BasicCard(
                 "Missions",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/comming_soon.jpg"
+            ),
+            BasicCard(
+                "Achievements",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/achievements.jpg"
             ),
             BasicCard(
                 "Tank Stats",
@@ -132,6 +133,10 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/mapstats.png"
             ),
             BasicCard(
+                "Profile",
+                background = "https://raw.githubusercontent.com/pucli/wotimg/main/poza_t49_login.jpg"
+            ),
+            BasicCard(
                 "Coming soon",
                 background = "https://raw.githubusercontent.com/pucli/wotimg/main/cliff.png"
             )
@@ -139,7 +144,7 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
     }
 
     override fun onCardClick(basicCard: BasicCard) {
-        if (basicCard.title == "Tank Characteristics") {
+        if (basicCard.title == "Tanks") {
             navigateToNations()
         } else if (basicCard.title == "Maps") {
             navigateToMaps()
@@ -151,6 +156,9 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             navigateToTankStats()
         } else if (basicCard.title == "Map Stats") {
             navigateToMapStats()
+        }
+        else if (basicCard.title == "Achievements") {
+            navigateToAchievements()
         }
     }
 
@@ -178,10 +186,14 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             val navNations = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
             findNavController().navigate(navNations)
     }
+    private fun navigateToMapStats() {
+        val navMapStats = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
+        findNavController().navigate(navMapStats)
+    }
 
-        private fun navigateToMapStats() {
-            val navNations = HomePageFragmentDirections.actionHomePageFragmentToMapStats()
-            findNavController().navigate(navNations)
+        private fun navigateToAchievements() {
+            val navAchievementsFragment = HomePageFragmentDirections.actionHomePageFragmentToAchievementsFragment()
+            findNavController().navigate(navAchievementsFragment)
     }
 
     }

@@ -74,7 +74,17 @@
             <action
                 android:id="@+id/action_homePageFragment_to_missionsFragment"
                 app:destination="@id/campaignFragment" />
+            <action
+                android:id="@+id/action_homePageFragment_to_achievementsFragment"
+                app:destination="@id/achievementsFragment" />
         </fragment>
+
+
+        <fragment
+            android:id="@+id/achievementsFragment"
+            android:name="com.wot.helper.ui.achievements.AchievementsFragment"
+            android:label="AchievementsFragment"
+            tools:layout="@layout/fragment_achievements"/>
 
         <fragment
             android:id="@+id/natiuneFragment"

@@ -34,10 +34,3 @@ data class Mission(
     val conditions: Map<String, Any>?
 ) : java.io.Serializable
 
-// --- Retrofit service ---
-interface WoTApiService {
-    @GET("wot/encyclopedia/personalmissions/")
-    suspend fun getPersonalMissions(
-        @Query("application_id") appId: String = "ace14516f4be72cde04425adca560339"
-    ): PersonalMissionsResponse
-}

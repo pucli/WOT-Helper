@@ -1,4 +1,4 @@
-package com.wot.helper.viewmodel
+/*package com.wot.helper.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,3 +30,4 @@ class MissionsViewModel : ViewModel() {
         }
     }
 }
+*/
