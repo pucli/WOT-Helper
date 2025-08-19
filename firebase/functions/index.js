@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp({
-  credential: admin.credential.cert('./wot-helper-edc0c-firebase-adminsdk-4r71e-03914e4d61.json')
+  credential: admin.credential.cert('./wot-helper-edc0c-firebase-adminsdk-4r71e-647f4e408a.json')
 });
 const axios = require('axios');
 

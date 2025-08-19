@@ -59,17 +59,17 @@ class MissionType : BaseFragment<FragmentMissionTypeBinding>(FragmentMissionType
     private fun getMissionTypes(campaign: String, tank: String): List<BasicCard> {
         return when (campaign.lowercase(Locale.getDefault())) {
             "the long-awaited backup" -> listOf(
-                BasicCard("Light Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/light.jpg"),
-                BasicCard("Medium Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/medium.jpg"),
-                BasicCard("Heavy Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/heavy.jpg"),
-                BasicCard("Tank Destroyer", background = "https://raw.githubusercontent.com/pucli/wotimg/main/td.jpg"),
+                BasicCard("Light Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/light2.png"),
+                BasicCard("Medium Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/medium2.png"),
+                BasicCard("Heavy Tank", background = "https://raw.githubusercontent.com/pucli/wotimg/main/heavy2.png"),
+                BasicCard("Tank Destroyer", background = "https://raw.githubusercontent.com/pucli/wotimg/main/td2.png"),
                 BasicCard("SPG", background = "https://raw.githubusercontent.com/pucli/wotimg/main/spg.jpg")
             )
             "the second front" -> listOf(
-                BasicCard("Union", background = "https://raw.githubusercontent.com/pucli/wotimg/main/union.jpg"),
-                BasicCard("Bloc", background = "https://raw.githubusercontent.com/pucli/wotimg/main/bloc.jpg"),
-                BasicCard("Alliance", background = "https://raw.githubusercontent.com/pucli/wotimg/main/alliance.jpg"),
-                BasicCard("Coalition", background = "https://raw.githubusercontent.com/pucli/wotimg/main/coalition.jpg")
+                BasicCard("Union", background = "https://raw.githubusercontent.com/pucli/wotimg/main/onsl.jpg"),
+                BasicCard("Bloc", background = "https://raw.githubusercontent.com/pucli/wotimg/main/onsl.jpg"),
+                BasicCard("Alliance", background = "https://raw.githubusercontent.com/pucli/wotimg/main/onsl.jpg"),
+                BasicCard("Coalition", background = "https://raw.githubusercontent.com/pucli/wotimg/main/onsl.jpg")
             )
             else -> emptyList()
         }
