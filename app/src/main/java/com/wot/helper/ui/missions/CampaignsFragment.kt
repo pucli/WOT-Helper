@@ -27,23 +27,18 @@ class CampaignsFragment : BaseFragment<FragmentCampaingsPageBinding>(FragmentCam
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchView = view.findViewById(R.id.searchView)
-
         setAdapter()
         setUpSearchView()
     }
 
     private fun setAdapter() {
-        val recyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
-        filterCards("") // Show all cards initially
+        binding.recyclerView.adapter = adapter
+        filterCards("")
     }
 
     private fun setUpSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
+            override fun onQueryTextSubmit(query: String) = false
             override fun onQueryTextChange(newText: String): Boolean {
                 filterCards(newText)
                 return true
@@ -52,24 +47,16 @@ class CampaignsFragment : BaseFragment<FragmentCampaingsPageBinding>(FragmentCam
     }
 
     private fun filterCards(query: String) {
-        val filteredList = if (query.isEmpty()) {
-            missions // If query is empty, show all cards
-        } else {
-            val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
-            missions.filter { basicCard ->
-                basicCard.title!!.toLowerCase(Locale.getDefault()).contains(lowerCaseQuery)
-            }
+        val filteredList = if (query.isEmpty()) missions else {
+            val lower = query.lowercase(Locale.getDefault())
+            missions.filter { it.title!!.lowercase(Locale.getDefault()).contains(lower) }
         }
         adapter.submitList(filteredList)
     }
 
     private fun setUpBottomNavBar() {
         val bottomNav = (requireActivity() as MainActivity).bottomNav
-        bottomNav.apply {
-            if (!isVisible) {
-                isVisible = true
-            }
-        }
+        bottomNav.isVisible = true
     }
 
     override fun onStart() {
@@ -77,55 +64,18 @@ class CampaignsFragment : BaseFragment<FragmentCampaingsPageBinding>(FragmentCam
         setUpBottomNavBar()
     }
 
-    companion object {
-        private val missions = arrayListOf(
-            /* BasicCard(
-                "STUG IV",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/stug4.jpg"
-            ),
-            BasicCard(
-                "T28 Concept",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/t28htc.jpg"
-            ),
-            BasicCard(
-                "T 55A",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/t55a.jpg"
-            ),
-            BasicCard(
-                "Object 260",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/obj260.jpg"
-            ),
-            BasicCard(
-                "Excalibur",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/excalibur.jpg"
-            ),
-            BasicCard(
-                "Chimera",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/chimera.jpg"
-            ),
-            BasicCard(
-                "Object 279e",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/wot279.jpg"
-            ) */
-
-            BasicCard(
-                "The Long-Awaited Backup",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/thelongawaitedbackup.jpg"
-
-            ),
-            BasicCard(
-                "The Second Front",
-                background = "https://raw.githubusercontent.com/pucli/wotimg/main/secondfront.jpg"
+    override fun onCardClick(basicCard: BasicCard) {
+        findNavController().navigate(
+            CampaignsFragmentDirections.actionCampaignFragmentToCampaignTankFragment(
+                campaign = basicCard.title!!
             )
         )
     }
 
-    override fun onCardClick(basicCard: BasicCard) {
-        navigateToCampaignTank(basicCard.title!!)
-    }
-
-    private fun navigateToCampaignTank(campaign: String) {
-        val navCampaignTankCharact = CampaignsFragmentDirections.actionCampaignFragmentToCampaignTankFragment(campaign = campaign)
-        findNavController().navigate(navCampaignTankCharact)
+    companion object {
+        private val missions = arrayListOf(
+            BasicCard("The Long-Awaited Backup", background = "https://raw.githubusercontent.com/pucli/wotimg/main/thelongawaitedbackup.jpg"),
+            BasicCard("The Second Front", background = "https://raw.githubusercontent.com/pucli/wotimg/main/secondfront.jpg")
+        )
     }
 }

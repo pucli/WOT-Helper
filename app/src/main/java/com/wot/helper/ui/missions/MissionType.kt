@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.wot.helper.R
 import com.wot.helper.databinding.FragmentMissionTypeBinding
 import com.wot.helper.domain.models.models.BasicCard
 import com.wot.helper.ui.adapters.HomePageAdapter
@@ -21,13 +22,11 @@ class MissionType : BaseFragment<FragmentMissionTypeBinding>(FragmentMissionType
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchView = view.findViewById(com.wot.helper.R.id.searchView)
+        searchView = view.findViewById(R.id.searchView)
 
-        // Get mission types based on campaign + tank
         missionTypes = getMissionTypes(args.campaign, args.tank)
 
-        val recyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
         filterCards("")
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -40,27 +39,22 @@ class MissionType : BaseFragment<FragmentMissionTypeBinding>(FragmentMissionType
     }
 
     private fun filterCards(query: String) {
-        val filteredList = if (query.isEmpty()) {
-            missionTypes
-        } else {
-            val lowerCaseQuery = query.lowercase(Locale.getDefault())
-            missionTypes.filter { card ->
-                card.title!!.lowercase(Locale.getDefault()).contains(lowerCaseQuery)
-            }
+        val filteredList = if (query.isEmpty()) missionTypes else {
+            val lower = query.lowercase(Locale.getDefault())
+            missionTypes.filter { it.title!!.lowercase(Locale.getDefault()).contains(lower) }
         }
         adapter.submitList(filteredList)
     }
 
     override fun onCardClick(basicCard: BasicCard) {
-        val action = MissionTypeDirections
-            .actionMissionTypeToMissionDescription(
+        findNavController().navigate(
+            MissionTypeDirections.actionMissionTypeToMissionDescription(
                 campaign = args.campaign,
                 tank = args.tank,
                 missionType = basicCard.title!!
             )
-        findNavController().navigate(action)
+        )
     }
-
 
     private fun getMissionTypes(campaign: String, tank: String): List<BasicCard> {
         return when (campaign.lowercase(Locale.getDefault())) {
