@@ -1,6 +1,8 @@
 package com.wot.helper.ui.profile
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -75,9 +77,19 @@ class ProfileFragment : BaseFragment<FragmentProfilBinding>(FragmentProfilBindin
                 btnLogout.setOnClickListener {
                     signOut()
                 }
+
+                btnFeedback.setOnClickListener {
+                    val url =
+                        "https://docs.google.com/forms/d/e/1FAIpQLSfS5pQw1akZCxwAvGEy5q7yCbhMihkk_6j9Fmvd8XR4dw6zOA/viewform"
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    startActivity(intent)
+                }
             }
         }
     }
+
+
+
 
     private fun navigateToAuth() {
         val navAuth = ProfileFragmentDirections.actionGlobalAuth()

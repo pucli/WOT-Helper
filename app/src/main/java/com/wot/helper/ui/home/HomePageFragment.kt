@@ -194,7 +194,7 @@ class HomePageFragment : BaseFragment<FragmentHomePageBinding>(FragmentHomePageB
             findNavController().navigate(navNations)
         }
         private fun navigateToMapStats() {
-            val navMapStats = HomePageFragmentDirections.actionHomePageFragmentToTankStats()
+            val navMapStats = HomePageFragmentDirections.actionHomePageFragmentToMapStats()
             findNavController().navigate(navMapStats)
         }
 

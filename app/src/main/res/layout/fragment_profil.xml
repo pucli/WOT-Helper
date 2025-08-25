@@ -355,12 +355,26 @@
             style="@style/MaterialButton_AuthenticationStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="60dp"
             android:text="@string/logout"
             app:icon="@drawable/ic_logout"
             app:iconTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glHorizontalBottom" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFeedback"
+            style="@style/MaterialButton_AuthenticationStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="60dp"
+            android:text="Feedback"
+
+            app:iconTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/glHorizontalBottom" />
 
