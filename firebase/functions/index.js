@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp({
-  credential: admin.credential.cert('./wot-helper-edc0c-firebase-adminsdk-4r71e-647f4e408a.json')
+  credential: admin.credential.cert('./wot-helper-key.json')
 });
 const axios = require('axios');
 
@@ -14,15 +14,21 @@ exports.handleWargamingRedirect = functions.https.onRequest(async (req, res) => 
 
   functions.logger.info('handleWargamingRedirect called', { received: params });
 
+  // Helper to redirect with error
+  const redirectWithError = (message, code = '') => {
+    const redirectUri = `wot-helper://callback?error=${encodeURIComponent(message)}${code ? `&code=${encodeURIComponent(code)}` : ''}`;
+    return res.redirect(302, redirectUri);
+  };
+
   if (params.status === 'error') {
     const { code, message } = params;
     functions.logger.warn('Wargaming authentication failed', { code, message });
-    return res.status(401).json({ error: `Wargaming auth failed: ${message || 'Unknown error'}`, code });
+    return redirectWithError(`Wargaming auth failed: ${message || 'Unknown error'}`, code);
   }
 
   const { access_token, account_id, nickname } = params;
   if (!access_token || !account_id || !nickname) {
-    return res.status(400).json({ error: 'Missing parameters' });
+    return redirectWithError('Missing parameters');
   }
 
   try {
@@ -73,6 +79,6 @@ exports.handleWargamingRedirect = functions.https.onRequest(async (req, res) => 
     res.redirect(302, redirectUri);
   } catch (error) {
     functions.logger.error('handleWargamingRedirect error', { error: error.message });
-    return res.status(500).json({ error: 'Verification failed', details: error.message });
+    return redirectWithError('Verification failed: ' + error.message);
   }
 });

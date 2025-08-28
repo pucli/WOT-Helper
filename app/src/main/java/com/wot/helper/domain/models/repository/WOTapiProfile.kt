@@ -1,13 +1,15 @@
 package com.wot.helper.domain.models.repository
 
-
 import com.wot.helper.domain.models.models.profileinfo.ProfileInfoRequest
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface WOTapiProfile {
 
-    @GET("/wot/account/info/?application_id=ace14516f4be72cde04425adca560339&account_id=533694329")
-    suspend fun getInfoProfile(): Response<ProfileInfoRequest>
+    @GET("/wot/account/info/")
+    suspend fun getInfoProfile(
+        @Query("application_id") applicationId: String,
+        @Query("account_id") accountId: String
+    ): Response<ProfileInfoRequest>
 }

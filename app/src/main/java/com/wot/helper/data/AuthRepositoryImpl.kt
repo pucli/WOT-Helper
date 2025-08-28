@@ -9,7 +9,9 @@ import com.wot.helper.domain.models.models.User
 import com.wot.helper.domain.models.repository.AuthRepository
 import com.wot.helper.domain.models.use_case.auth.Response
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -70,15 +72,28 @@ class AuthRepositoryImpl @Inject constructor(
         return auth.currentUser != null
     }
 
-    override fun getUserProfile() = flow {
-        try {
-            auth.currentUser?.apply {
-                val user = User(email, displayName, uid)
-                emit(Response.Success(user))
-            }
-        } catch (e: Exception) {
-            emit(Response.Failure(e.message ?: ERROR_MESSAGE))
+    override fun getUserProfile(): Flow<Response<User>> = flow {
+        val firebaseUser = auth.currentUser
+
+        if (firebaseUser != null) {
+            val username = firebaseUser.displayName?.trim()
+                ?.takeIf { it.isNotEmpty() }              // use displayName if not blank
+                ?: firebaseUser.email
+                    ?.substringBefore("@")
+                    ?.trim()
+                    ?.takeIf { it.isNotEmpty() }
+
+            val user = User(
+                email = firebaseUser.email,
+                username = username,
+                account_id = firebaseUser.uid
+            )
+            emit(Response.Success(user))
+        } else {
+            emit(Response.Failure("No user is logged in"))
         }
+    }.catch { e ->
+        emit(Response.Failure(e.message ?: ERROR_MESSAGE))
     }
 
     override suspend fun sendPasswordResetEmail(email: String) = flow {

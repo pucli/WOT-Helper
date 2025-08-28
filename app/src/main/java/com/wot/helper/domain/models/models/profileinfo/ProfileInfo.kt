@@ -1,17 +1,15 @@
 package com.wot.helper.domain.models.models.profileinfo
 
-import java.sql.Timestamp
-
 data class ProfileInfo(
-    val account_id: Int,
-    val clan_id: Int,
-    val client_language: String,
-    val created_at: Long,
+    val account_id: Int? = null,
+    val clan_id: Int? = null,
+    val client_language: String? = null,
+    val created_at: Long? = null,
     val global_rating: Int? = null,
-    val last_battle_time: Long,
-    val logout_at: Long,
-    val nickname: String,
+    val last_battle_time: Long? = null,
+    val logout_at: Long? = null,
+    val nickname: String? = null,
     val private: Any? = null,
     val statistics: Statistics? = null,
-    val updated_at: Long
+    val updated_at: Long? = null
 )
